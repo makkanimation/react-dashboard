@@ -20,11 +20,12 @@
 [API Link](https://reqres.in/)
 ----------------
 First we need below pages
+
 1.) Login as first page
 
 2.) Signup/Register
 
-3.) Dashboard (after login it will be default. and login/register page cannot be accessable if user will be login. It will rediect to Dashboard Page)
+3.) Dashboard (After login it will be default page. and login/register page cannot be accessable if user will be login. It will rediect to Dashboard Page)
 
 4.) Profile Page
 
