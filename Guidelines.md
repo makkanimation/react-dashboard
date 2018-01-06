@@ -27,7 +27,7 @@ First we need below pages
 
 3.) Dashboard (After login it will be default page. and login/register page cannot be accessable if user will be login. It will rediect to Dashboard Page)
 
-4.) Profile Page
+4.) Profile Page (FirstName, Last Name, Email ID, Phone, Address, Gender {radio box}, Photo, Country {Drop down},Hobbies {check box}
 
 5.) Users Detail Page
 
