@@ -1,7 +1,7 @@
 # React Dashboard
 
 ### Pattern :
-	- folder name       	:name-name
+	- folder name       	: name-name
 	- Components.jsx	: PascalCase
 	- Containers.jsx	: PascalCase
 	- reducers.jsx	    	: camelCase
@@ -16,6 +16,9 @@
     /images
     /reducers
     /styles
+-----------------
+### Folder Name: 
+  src instead of client
 -----------------
 [API Link](https://reqres.in/)
 ----------------
