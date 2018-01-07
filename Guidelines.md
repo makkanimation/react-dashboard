@@ -1,13 +1,14 @@
 # React Dashboard
 
 ### Pattern :
-	- folder name       	:name-name
+	- folder name       :name-name
 	- Components.jsx	: PascalCase
 	- Containers.jsx	: PascalCase
-	- reducers.jsx	    	: camelCase
+	- reducers.jsx	    : camelCase
 	- actions.jsx		: camelCase
-	- index.js		: lowercase
+	- index.js			: lowercase
 	- style.scss		: lowercase
+	- export class		: PascalCase
 --------------------------------------------
 ### Folders have to make:
     /actions
@@ -16,6 +17,9 @@
     /images
     /reducers
     /styles
+-----------------
+### Folder Name: 
+  src instead of client
 -----------------
 [API Link](https://reqres.in/)
 ----------------
