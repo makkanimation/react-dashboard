@@ -1,12 +1,12 @@
 # React Dashboard
 
 ### Pattern :
-	- folder name       :name-name
+	- folder name       	: name-name
 	- Components.jsx	: PascalCase
 	- Containers.jsx	: PascalCase
-	- reducers.jsx	    : camelCase
+	- reducers.jsx	    	: camelCase
 	- actions.jsx		: camelCase
-	- index.js			: lowercase
+	- index.js		: lowercase
 	- style.scss		: lowercase
 	- export class		: PascalCase
 --------------------------------------------
