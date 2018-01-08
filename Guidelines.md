@@ -8,6 +8,7 @@
 	- actions.jsx		: camelCase
 	- index.js		: lowercase
 	- style.scss		: lowercase
+	- export class		: PascalCase
 --------------------------------------------
 ### Folders have to make:
     /actions
