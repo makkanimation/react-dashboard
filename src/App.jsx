@@ -7,14 +7,14 @@ import ProfileComponent from './components/ProfileComponent';
 import UsersComponent from './components/UsersComponent';
 import CreateUserComponent from './components/CreateUserComponent';
 import EditUserComponent from './components/CreateUserComponent';
-import Routers from './Routers';
+import WebRouter from './Router';
 
 export default class App extends React.Component {
     render() {
     return (
     <div>
     <HeaderComponent/>
-    <Routers/>
+    <WebRouter/>
     </div>);
     }
 }

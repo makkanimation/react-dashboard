@@ -1,20 +1,42 @@
 import React from 'react';
-import Input from './global/Input';
-import CheckBoxOrRadio from './global/CheckBoxOrRadio';
-import Button from './global/Button';
-
-export default class LoginComponent extends React.Component{
+import Input from '../components/global/Input';
+import CheckBoxOrRadio from '../components/global/CheckBoxOrRadio';
+import Button from '../components/global/Button';
+import { fetchData } from '../actions/index';
+import { connect } from 'react-redux';
+class LoginContainer extends React.Component{
     constructor(props){
         super(props);
         this.hadleSubmit = this.hadleSubmit.bind(this);
     }
     hadleSubmit(e){
         e.preventDefault();
+        //localStorage.setItem('email',e.target.email.value);
+        //localStorage.removeItem('email',e.target.email.value);
+        //console.log("fffff "+localStorage.getItem('email'));
         console.log(e.target.email.value);
         console.log(e.target.password.value);
         console.log(e.target.gender.checked); 
-        return false;
+        //let fn = fetchData('https://reqres.in/api/login','LOGIN','POST',{
+           //'email':e.target.email.value,
+         //  'password':e.target.password.value,
+       // });
+        //let fn = ;
+        let fn = fetchData(
+            'https://reqres.in/api/login', 
+            'LOGIN', 
+            'POST', 
+            {
+              "email": "peter@klaven",
+              "password": "cityslicka"
+            } 
+          );
+          
+          this.props.dispatch(fn)
+        //console.log(state);
+       // return false;
     }
+
     render(){
         return(
             <div className="container-fluid">
@@ -37,3 +59,4 @@ export default class LoginComponent extends React.Component{
         );
     }
 } 
+export default connect()(LoginContainer);
