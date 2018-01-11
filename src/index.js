@@ -10,7 +10,7 @@ import {createLogger} from 'redux-logger'
 const logger = createLogger({
 });
 
-let store = createStore(webStore, applyMiddleware(thunk));
+let store = createStore(webStore, applyMiddleware(thunk,logger));
 //let store = createStore(webStore)
 
 ReactDOM.render(<Provider store={store}><BrowserRouter><App /></BrowserRouter></Provider>, document.getElementById('root'));

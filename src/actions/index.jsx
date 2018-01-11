@@ -3,15 +3,15 @@ import axios from 'axios';
 
 
 function requestData(actionType) {
-	console.log(actionType);
-	
 	return {type: actionType + types.REQ_DATA}
 };
 
-function receiveData(actionType, json) {
+function receiveData(actionType, json,params) {
+	//console.log(params);
 	return{
 		type: actionType + types.RECV_DATA,
-		data: json
+		data: json,
+		params:params,
 	}
 };
 
@@ -37,8 +37,7 @@ export function fetchData(url, actionType, method, params ) {
 
 		return axios(config)
 			.then(function(response) {
-				
-				dispatch(receiveData(actionType, response.data));
+				dispatch(receiveData(actionType, response.data,params));
 			})
 			.catch(function(response){
 				dispatch(receiveError(actionType, response.data));

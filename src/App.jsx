@@ -1,5 +1,6 @@
 import React from 'react';
-import HeaderComponent from './components/includes/HeaderComponent';
+import HeaderContainer from './containers/HeaderContainer';
+//import HeaderComponent from './components/includes/HeaderComponent';
 import LoginComponent from './components/LoginComponent';
 import RegisterComponent from './components/RegisterComponent';
 import DashboardComponent from './components/DashboardComponent';
@@ -13,7 +14,7 @@ export default class App extends React.Component {
     render() {
     return (
     <div>
-    <HeaderComponent/>
+    <HeaderContainer/>
     <WebRouter/>
     </div>);
     }

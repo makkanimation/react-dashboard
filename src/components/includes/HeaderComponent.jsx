@@ -14,11 +14,19 @@ export default class HeaderComponent extends React.Component{
     }
 
     toggleSettings(){
+        console.log();
         if(!this.state.show){
             this.setState({
                 show:true,
                 settingStyle:{
                     display:'block'
+                }
+            })
+        }else{
+            this.setState({
+                show:false,
+                settingStyle:{
+                    display:'none'
                 }
             })
         }
@@ -34,29 +42,25 @@ export default class HeaderComponent extends React.Component{
                     </button>
 
                     <div className="collapse navbar-collapse" id="navbarsExampleDefault">
-                    { this.props.isLoggedIn && <ul className="navbar-nav mr-auto">
+                    { (this.props.isLoggedIn || localStorage.getItem('isLoggedIn')) && <ul className="navbar-nav mr-auto">
                         <li className="nav-item">
                             <Link to='/dashboard' className="nav-link">Home <span className="sr-only">(current)</span></Link>
                         </li>
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="#"  onClick={this.toggleSettings} >Settings <span className="caret" ></span></a>
                             <ul className="dropdown-menu" role="menu" style={this.state.settingStyle}>
-                            <li><Link to='/profile/1' className="nav-link">Profile</Link></li>
-                            <li><Link to='/users' className="nav-link">Users</Link></li>
-                            <li><a href="#">Logout</a></li>
+                            <li><Link to='/profile/1' >Profile</Link></li>
+                            <li><Link to='/users' >Users</Link></li>
+                            <li><a href="#" onclick={this.props.isLoggedOut} >Logout</a></li>
                             </ul>
                         </li>
-                        <li><Link to='/profile/1' className="nav-link">Profile</Link></li>
-                        <li><Link to='/users' className="nav-link">Users</Link></li>
-                        <li><Link to='/profile/1' className="nav-link">View Profile</Link></li>
-                        <li><Link to='/users/edit/1' className="nav-link">Edit</Link></li>
-                            <li className="nav-item">
+                        <li className="nav-item">
                         <a className="nav-link" href="#">Help</a>
                         </li>
                     </ul>
                     }
 
-                    { !this.props.isLoggedIn &&  <ul className="navbar-nav mr-auto">
+                    { (!this.props.isLoggedIn && localStorage.getItem('isLoggedIn')==null) &&  <ul className="navbar-nav mr-auto">
                     <li className="nav-item active">
                     <Link to='/login' className="nav-link">Login</Link>
                     </li>
@@ -80,5 +84,6 @@ HeaderComponent.defaultProps = {
   
   HeaderComponent.propTypes = {
     isLoggedIn: PropTypes.bool,
-    homeLink: PropTypes.string.isLoggedIn,
+    homeLink: PropTypes.string,
+    isLoggedOut:PropTypes.func
   }
