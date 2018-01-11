@@ -34,7 +34,7 @@ export default class HeaderComponent extends React.Component{
 
     render(){
         return(
-            <header>
+            <header className="sd-header">
                 <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
                     <Link to={this.props.homeLink} className="nav-link">React Dashboard</Link>
                     <button className="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,19 +69,19 @@ export default class HeaderComponent extends React.Component{
                     </li>
                     </ul>
                     }
-                    
+
                     </div>
                 </nav>
             </header>
         );
     }
-} 
+}
 
 HeaderComponent.defaultProps = {
     isLoggedIn: false,
     homeLink:'/'
   };
-  
+
   HeaderComponent.propTypes = {
     isLoggedIn: PropTypes.bool,
     homeLink: PropTypes.string,

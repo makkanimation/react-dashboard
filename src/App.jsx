@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles/scss/main.scss';
 import HeaderContainer from './containers/HeaderContainer';
 //import HeaderComponent from './components/includes/HeaderComponent';
 import LoginComponent from './components/LoginComponent';
@@ -9,6 +10,8 @@ import UsersComponent from './components/UsersComponent';
 import CreateUserComponent from './components/CreateUserComponent';
 import EditUserComponent from './components/CreateUserComponent';
 import WebRouter from './Router';
+
+
 
 export default class App extends React.Component {
     render() {
