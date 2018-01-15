@@ -4,6 +4,7 @@ import CheckBoxOrRadio from './global/CheckBoxOrRadio';
 import Button from './global/Button';
 import PropTypes from 'prop-types';
 import DashboardComponent from './DashboardComponent'
+//import { Route, Redirect } from 'react-router'
 export default class LoginComponent extends React.Component{
     constructor(props){
         super(props);
@@ -18,6 +19,7 @@ export default class LoginComponent extends React.Component{
     // }
     render(){
         if(this.props.isLoggedIn || localStorage.getItem('isLoggedIn')){
+           // <Redirect to="/dashboard"/>
             return <DashboardComponent />;
         }
         return(

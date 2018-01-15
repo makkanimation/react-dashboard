@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import Image from '../global/Image'
+import ToggleComponent from '../ToggleComponent';
 export default class UserListComponent extends React.Component{
     constructor(props){
         super(props);
@@ -16,15 +17,7 @@ export default class UserListComponent extends React.Component{
                 <td><Image srcUrl={list.avatar} /></td>
                 <td>{list.first_name}</td>
                 <td>{list.last_name}</td>
-                <td><div className="dropdown">
-                <a className="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="#" id={index} onClick={this.props.toggleSettings}>Settings <span className="caret"></span></a>
-                <ul className="dropdown-menu" role="menu"  style={this.props.settingStyle} >
-                    <li><Link  to={'/profile/'+list.id }  className="nav-link">View Profile</Link></li>
-                    <li><Link to={'/users/edit/'+list.id} className="nav-link">Edit</Link></li>
-                    <li><a href="#" >Delete</a></li>
-                </ul>
-                </div>
-                </td>
+                <td><ToggleComponent uID={list.id} /></td>
                 </tr>
             )
         );

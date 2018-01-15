@@ -25,7 +25,7 @@ export default class HeaderComponent extends React.Component{
                             <ul className="dropdown-menu" role="menu" style={this.props.settingStyle}>
                             <li><Link to='/profile/1' >Profile</Link></li>
                             <li><Link to='/users' >Users</Link></li>
-                            <li><a href="#" onClick={this.props.isLoggedOut} >Logout</a></li>
+                            <li><Link to='/logout' onClick={this.props.isLoggedOut} >Logout</Link> </li>
                             </ul>
                         </li>
                         <li className="nav-item">
