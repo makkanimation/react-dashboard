@@ -1,10 +1,23 @@
 import React from 'react';
 import NavComponent from './includes/NavComponent';
 import UserListComponent from './sub-components/UserListComponent';
-
+import PropTypes from 'prop-types';
 export default class UsersComponent extends React.Component{
-    render(){
-        return(
+  constructor(props){
+    super(props)
+    
+  }  
+
+  render(){
+    
+    var lis = [];
+    var num = 0;
+      for (var i=0; i<this.props.totalPage; i++) {
+        num = i + 1;
+        lis.push(<li><a href="#" onClick={this.props.getPage(num)} >{num}</a></li>);
+      }
+    
+    return(
             <div className="container-fluid">
             <div className="row">
                 <NavComponent/>
@@ -14,26 +27,23 @@ export default class UsersComponent extends React.Component{
             <table className="table table-striped">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
+                  <th>Avtar</th>
+                  <th>First Name</th>
+                  <th>Last name</th>
                   <th>Settings</th>
                 </tr>
               </thead>
               <tbody>
-                <UserListComponent/>
+                <UserListComponent userRecords={this.props.userRecords} toggleSettings={this.props.toggleSettings} settingStyle={this.props.settingStyle} />
               </tbody>
             </table>
+            { this.props.totalPage>0 &&  
             <div className="center-align">
               <ul className="pagination">
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
+                {lis}
               </ul>
             </div>
+            }
           </div>
         </main>
             </div>
@@ -41,3 +51,16 @@ export default class UsersComponent extends React.Component{
         );
     }
 } 
+
+UsersComponent.defaultProps = {
+  userRecords: [],
+  totalPage:0
+};
+
+UsersComponent.propTypes = {
+  userRecords: PropTypes.array.isRequired,
+  totalPage: PropTypes.number.isRequired,
+  getPage:PropTypes.func,
+  toggleSettings:PropTypes.func,
+  settingStyle: PropTypes.string,
+}

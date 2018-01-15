@@ -1,16 +1,13 @@
 import { RECV_DATA } from '../actions/ActionTypes';
-import { combineReducers } from 'redux';
 
 const defaultState ={
     isLoggedIn:false,
     token:null,
     email:null
 }
-function loginRequest(state={defaultState},action){
-    console.log("Request");
-    console.log(action);
+export default function LoginRequest(state=defaultState,action){
     switch(action.type){
-        case 'LOGIN'+RECV_DATA:
+        case 'LOGIN'+RECV_DATA: case 'REGISTER'+RECV_DATA:
         localStorage.setItem('isLoggedIn',true);    
         localStorage.setItem('token',action.data.token);    
         localStorage.setItem('email',action.params.email);    
@@ -19,11 +16,16 @@ function loginRequest(state={defaultState},action){
             token:action.data.token,
             email:action.params.email
         }
+        case 'LOGOUT':
+        localStorage.removeItem('isLoggedIn');    
+        localStorage.removeItem('token');    
+        localStorage.removeItem('email'); 
+        return {
+            isLoggedIn:false,
+            token:null,
+            email:null
+        }
         default:
             return state;
     }
 }
-
-const webStore = combineReducers({loginRequest});
-
-export default webStore;

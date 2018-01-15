@@ -46,7 +46,7 @@ LoginComponent.defaultProps = {
     isLoggedIn:false
 }
 
-Input.propTypes = {
+LoginComponent.propTypes = {
     isLoggedIn: PropTypes.bool,
     isSubmitForm:PropTypes.func
 }

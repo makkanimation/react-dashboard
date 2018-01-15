@@ -4,32 +4,6 @@ import { Link } from 'react-router-dom'
 export default class HeaderComponent extends React.Component{
     constructor(props) {
         super(props);
-        this.state = {
-            settingStyle:{
-                display:'none'
-            }, show:false
-        }
-
-        this.toggleSettings = this.toggleSettings.bind(this);
-    }
-
-    toggleSettings(){
-        console.log();
-        if(!this.state.show){
-            this.setState({
-                show:true,
-                settingStyle:{
-                    display:'block'
-                }
-            })
-        }else{
-            this.setState({
-                show:false,
-                settingStyle:{
-                    display:'none'
-                }
-            })
-        }
     }
 
     render(){
@@ -47,12 +21,18 @@ export default class HeaderComponent extends React.Component{
                             <Link to='/dashboard' className="nav-link">Home <span className="sr-only">(current)</span></Link>
                         </li>
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="#"  onClick={this.toggleSettings} >Settings <span className="caret" ></span></a>
-                            <ul className="dropdown-menu" role="menu" style={this.state.settingStyle}>
+                            <a className="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="#"  onClick={this.props.toggleSettings} >Settings <span className="caret" ></span></a>
+                            <ul className="dropdown-menu" role="menu" style={this.props.settingStyle}>
                             <li><Link to='/profile/1' >Profile</Link></li>
                             <li><Link to='/users' >Users</Link></li>
-                            <li><a href="#" onclick={this.props.isLoggedOut} >Logout</a></li>
+                            <li><a href="#" onClick={this.props.isLoggedOut} >Logout</a></li>
                             </ul>
+                        </li>
+                        <li className="nav-item">
+                            <Link to='/users/create' className="nav-link">Create User</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to='/users/edit/1' className="nav-link">Edit User</Link>
                         </li>
                         <li className="nav-item">
                         <a className="nav-link" href="#">Help</a>
@@ -85,5 +65,7 @@ HeaderComponent.defaultProps = {
   HeaderComponent.propTypes = {
     isLoggedIn: PropTypes.bool,
     homeLink: PropTypes.string,
-    isLoggedOut:PropTypes.func
+    settingStyle: PropTypes.string,
+    isLoggedOut:PropTypes.func,
+    toggleSettings:PropTypes.func,
   }
