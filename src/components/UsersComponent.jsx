@@ -2,6 +2,7 @@ import React from 'react';
 import NavComponent from './includes/NavComponent';
 import UserListComponent from './sub-components/UserListComponent';
 import PropTypes from 'prop-types';
+import List from './global/List'
 export default class UsersComponent extends React.Component{
   constructor(props){
     super(props)
@@ -15,6 +16,7 @@ export default class UsersComponent extends React.Component{
       for (var i=0; i<this.props.totalPage; i++) {
         num = i + 1;
         lis.push(<li><a href="#" onClick={this.props.getPage(num)} >{num}</a></li>);
+        //lis.push(<List handleClickSubmit={this.props.getPage(num)} anchTag={true} value={num} />);
       }
     
     return(
