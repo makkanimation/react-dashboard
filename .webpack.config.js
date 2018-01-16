@@ -9,10 +9,13 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   inject: 'body'
 })
 
+/** production
 const extractSass = new ExtractTextPlugin({
     filename: "[name].[contenthash].css",
     disable: process.env.NODE_ENV === "development"
 });
+**/
+
 const extractSassDev = new ExtractTextPlugin({
     filename: "bundle.css",
     disable: process.env.NODE_ENV === "production"
