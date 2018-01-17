@@ -6,28 +6,38 @@ import CheckBoxOrRadio from './global/CheckBoxOrRadio';
 import SelectBox from './global/SelectBox';
 import TextArea from './global/TextArea';
 import Button from './global/Button';
+import PropTypes from 'prop-types';
+
+
 
 export default class EditUserComponent extends React.Component{
     render(){
+        if(this.props.singleUserData.length==0){
+            return 'testing';
+        }
+        //console.log(this.props.singleUserData);
         return(
             <div className="container-fluid">
+            
             <div className="row">
                 <NavComponent/>
                 <main role="main" className="col-sm-9 ml-sm-auto col-md-10 pt-3">
                     <h1 className="center-align">Edit User</h1>
-                    <form className='formcls' action="">
+                    <form className='formcls' action="" onSubmit={this.props.handleSubmit} >
                     <div className="container">
-                        <UploadPic />
-                        <Input label="First Name" placeHolder="Enter First Name" name="fname" RequiredField={true} />
-                        <Input label="Last Name" placeHolder="Enter Last Name" name="lname" RequiredField={true} />
+                    {this.props.actionMsg!='' && <div className="alert alert-success"> <strong>Success!</strong> {this.props.actionMsg} </div> } 
+                        <UploadPic srcUrl={this.props.singleUserData.avatar} />
+                        <Input label="First Name" placeHolder="Enter First Name" name="fname" RequiredField={true} value={this.props.singleUserData.first_name}/>
+                        <Input label="Last Name" placeHolder="Enter Last Name" name="lname" RequiredField={true} value={this.props.singleUserData.last_name}/>
                         <Input label="Designation" placeHolder="Enter Designation" name="designation" RequiredField={true} />
                         <Input label="Email" inputType="email" placeHolder="Enter Email" name="email" RequiredField={true} />
-                        <Input label="Phone No" placeHolder="Enter Phone No" name="phoneno" RequiredField={true} />
+                       { /* <Input label="Phone No" placeHolder="Enter Phone No" name="phoneno" RequiredField={true} />
                         <Input label="Address" placeHolder="Enter Your Address" name="address" RequiredField={true} />
-                        <Input label="Zip Code" placeHolder="Enter Zip Code" name="zip" RequiredField={true} />
+                          <Input label="Zip Code" placeHolder="Enter Zip Code" name="zip" RequiredField={true} /> 
+                        
                         <CheckBoxOrRadio inputType="radio" label="Gender" name="gender" option={['Male','Female']} />
                         <SelectBox label="Country" placeHolder="Select Country" name="country" option={["India","USA","Canada"]}/>
-                        <TextArea label="Tell me About Yourself" placeHolder="Tell me About Yourself" name="selfDescription" RequiredField={true} value="" />
+                        <TextArea label="Tell me About Yourself" placeHolder="Tell me About Yourself" name="selfDescription" RequiredField={true} value="" />*/}
                         <div className="clearfix">
                         <Button inputType="submit" clsName="signupbtn" name="signup" value="Submit" />
                         <Button inputType="button" clsName="cancelbtn" name="back" value="Back" />
@@ -40,3 +50,15 @@ export default class EditUserComponent extends React.Component{
         );
     }
 }
+
+EditUserComponent.defaultProps = {
+    singleUserData:[],
+    actionMsg:''
+
+  };
+  
+  EditUserComponent.propTypes = {
+    singleUserData: PropTypes.array.isRequired,
+    actionMsg: PropTypes.string
+  }
+  

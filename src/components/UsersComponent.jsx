@@ -1,6 +1,8 @@
 import React from 'react';
 import NavComponent from './includes/NavComponent';
 import UserListComponent from './sub-components/UserListComponent';
+import PropTypes from 'prop-types';
+
 
 export default class UsersComponent extends React.Component{
     render(){
@@ -15,23 +17,23 @@ export default class UsersComponent extends React.Component{
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Image</th>
                   <th>Settings</th>
                 </tr>
               </thead>
               <tbody>
-                <UserListComponent/>
+                <UserListComponent userRecords={this.props.userRecords}/>
               </tbody>
             </table>
             <div className="center-align">
               <ul className="pagination">
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
+                <li id='1'><a href="#">1</a></li>
+                <li id='2'><a href="#">2</a></li>
+                <li id='3'><a href="#">3</a></li>
+                <li id='4'><a href="#">4</a></li>
+                <li id='5'><a href="#">5</a></li>
               </ul>
             </div>
           </div>
@@ -41,3 +43,13 @@ export default class UsersComponent extends React.Component{
         );
     }
 } 
+
+UsersComponent.defaultProps = {
+  userRecords:[]
+};
+
+UsersComponent.propTypes = {
+  userRecords: PropTypes.array.isRequired
+}
+
+
