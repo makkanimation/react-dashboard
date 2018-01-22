@@ -17,6 +17,8 @@ function receiveData(actionType, json,params) {
 };
 
 function receiveError(actionType, json) {
+	console.log("fetch error");
+	console.log(json);
 	return {
 		type: actionType + types.RECV_ERROR,
 		data: json

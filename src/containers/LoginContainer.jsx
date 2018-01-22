@@ -5,6 +5,8 @@ import Button from '../components/global/Button';
 import { fetchData } from '../actions/index';
 import { connect } from 'react-redux';
 import LoginComponent from '../components/LoginComponent'
+import HeaderContainer from './HeaderContainer';
+
 class LoginContainer extends React.Component{
     constructor(props){
         super(props);
@@ -33,11 +35,13 @@ class LoginContainer extends React.Component{
             } 
           );
           
-          this.props.dispatch(fn)
+          this.props.dispatch(fn);
       }
 
     render(){
-        return(<LoginComponent isSubmitForm={this.hadleSubmit} isLoggedIn={this.props.isLoggedIn} />
+        
+        //console.log(this.props);
+        return(<div><HeaderContainer /><LoginComponent history={this.props.history} isSubmitForm={this.hadleSubmit} isLoggedIn={this.props.isLoggedIn} /></div>
         );
     }
 } 

@@ -2,6 +2,7 @@ import React from 'react';
 import UsersComponent from '../components/UsersComponent';
 import { fetchData } from '../actions/index';
 import { connect } from 'react-redux';
+import HeaderContainer from './HeaderContainer';
 class UserContainer extends React.Component{
     constructor(props){
         super(props)
@@ -53,18 +54,18 @@ class UserContainer extends React.Component{
     }
 
     render(){
-        return(<UsersComponent userRecords={this.props.userRecords}  totalPage={this.props.totalPage} getPage={this.getPage} toggleSettings={this.toggleSettings} settingStyle={this.state.settingStyle} />);
+        console.log("Manish")
+        console.log(this.props)
+        
+        return(<div><HeaderContainer/><UsersComponent userRecords={this.props.userRecords}  totalPage={this.props.totalPage} getPage={this.getPage} toggleSettings={this.toggleSettings} settingStyle={this.state.settingStyle} /></div>);
     }
 }
 
 
 const mapStateToProps = state => {
-    //console.log("User list");
-   // console.log(state.listUsers.data);
-    
     return {
-        userRecords: state.listUsers.data,
-        totalPage:state.listUsers.total_pages,
+        userRecords: state.User.userList.data,
+        totalPage:state.User.userList.total_pages,
     }
 };
 

@@ -33,13 +33,13 @@ export default class CreateUserComponent extends React.Component{
                         <Input label="First Name" placeHolder="Enter First Name" name="fname" RequiredField={true} />
                         <Input label="Last Name" placeHolder="Enter Last Name" name="lname" RequiredField={true} />
                         <Input label="Designation" placeHolder="Enter Designation" name="designation" RequiredField={true} />
-                        <Input label="Email" inputType="email" placeHolder="Enter Email" name="email" RequiredField={true} />
-                        <Input label="Phone No" placeHolder="Enter Phone No" name="phoneno" RequiredField={true} />
-                        <Input label="Address" placeHolder="Enter Your Address" name="address" RequiredField={true} />
-                        <Input label="Zip Code" placeHolder="Enter Zip Code" name="zip" RequiredField={true} />
+                        <Input label="Email" inputType="email" placeHolder="Enter Email" name="email"  />
+                        <Input label="Phone No" placeHolder="Enter Phone No" name="phoneno"  />
+                        <Input label="Address" placeHolder="Enter Your Address" name="address"  />
+                        <Input label="Zip Code" placeHolder="Enter Zip Code" name="zip"  />
                         <CheckBoxOrRadio inputType="radio" label="Gender" name="gender" option={['Male','Female']} />
                         <SelectBox label="Country" placeHolder="Select Country" name="country" option={["India","USA","Canada"]}/>
-                        <TextArea label="Tell me About Yourself" placeHolder="Tell me About Yourself" name="selfDescription" RequiredField={true} value="" />
+                        <TextArea label="Tell me About Yourself" placeHolder="Tell me About Yourself" name="selfDescription"  value="" />
                         <div className="clearfix">
                         <Button inputType="submit" clsName="signupbtn" name="signup" value="Submit" />
                         <Button inputType="button" clsName="cancelbtn" name="back" value="Back" />

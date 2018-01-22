@@ -2,6 +2,8 @@ import React from 'react';
 import { fetchData } from '../actions/index';
 import { connect } from 'react-redux';
 import EditUserComponent from '../components/EditUserComponent'
+import HeaderContainer from './HeaderContainer';
+
 class EditUserContainer extends React.Component{
     constructor(props){
         super(props);
@@ -38,16 +40,16 @@ class EditUserContainer extends React.Component{
       }
 
     render(){
-        return(<EditUserComponent isSubmitForm={this.hadleSubmit} alertType={this.props.alertType} alertMsg={this.props.alertMsg} userRecords={this.props.userRecords} />
+        return(<div><HeaderContainer/><EditUserComponent isSubmitForm={this.hadleSubmit} alertType={this.props.alertType} alertMsg={this.props.alertMsg} userRecords={this.props.userRecords} /></div>
         );
     }
 } 
 
 const mapStateToProps = state => {
     return {
-        alertType: state.editUser.type,
-        alertMsg: state.editUser.msg,
-        userRecords: state.singleUser.data,
+        alertType: state.User.userEdit.type,
+        alertMsg: state.User.userEdit.msg,
+        userRecords: state.User.singleUser,
     }
     
 };

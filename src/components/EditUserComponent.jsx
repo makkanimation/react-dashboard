@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import HeaderContainer from '../containers/HeaderContainer';
 import NavComponent from './includes/NavComponent';
 import UploadPic from './global/UploadPic';
 import Input from './global/Input';

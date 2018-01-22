@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux'
 import RegisterComponent from '../components/RegisterComponent'
 import { fetchData } from '../actions/index';
+import HeaderContainer from './HeaderContainer';
+
 class RegisterContainer extends React.Component{
     constructor(props){
         super(props);
@@ -34,7 +36,7 @@ class RegisterContainer extends React.Component{
       }
 
     render(){
-        return(<RegisterComponent  isSubmitForm={this.hadleSubmit} isLoggedIn={this.props.isLoggedIn} />);
+        return(<div><HeaderContainer/><RegisterComponent  isSubmitForm={this.hadleSubmit} isLoggedIn={this.props.isLoggedIn} /></div>);
     }
 }
 

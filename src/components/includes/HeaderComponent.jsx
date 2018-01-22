@@ -17,6 +17,9 @@ export default class HeaderComponent extends React.Component{
 
                     <div className="collapse navbar-collapse" id="navbarsExampleDefault">
                     { (this.props.isLoggedIn || localStorage.getItem('isLoggedIn')) && <ul className="navbar-nav mr-auto">
+                    <li className="nav-item">
+                    <Link to='/register' className="nav-link">Register</Link>
+                    </li>
                         <li className="nav-item">
                             <Link to='/dashboard' className="nav-link">Home <span className="sr-only">(current)</span></Link>
                         </li>
@@ -25,7 +28,7 @@ export default class HeaderComponent extends React.Component{
                             <ul className="dropdown-menu" role="menu" style={this.props.settingStyle}>
                             <li><Link to='/profile/1' >Profile</Link></li>
                             <li><Link to='/users' >Users</Link></li>
-                            <li><Link to='/logout' onClick={this.props.isLoggedOut} >Logout</Link> </li>
+                            <li><Link to='/logout' >Logout</Link> </li>
                             </ul>
                         </li>
                         <li className="nav-item">
@@ -46,6 +49,9 @@ export default class HeaderComponent extends React.Component{
                     </li>
                     <li className="nav-item">
                     <Link to='/register' className="nav-link">Register</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to='/dashboard' className="nav-link">Home <span className="sr-only">(current)</span></Link>
                     </li>
                     </ul>
                     }

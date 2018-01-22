@@ -17,10 +17,11 @@ class HeaderContainer extends React.Component{
     }
 
     isLogout(e){
-        e.preventDefault();
-        console.log("logout ");
-        this.toggleSettings();
-        this.props.dispatch(logOutAction('LOGOUT'));
+       // e.preventDefault();
+       // console.log("logout ");
+       // this.toggleSettings();
+       // this.props.dispatch(logOutAction('LOGOUT'));
+       // this.props.history.push('/login');
     }
 
     toggleSettings(){
@@ -42,7 +43,7 @@ class HeaderContainer extends React.Component{
     }
 
     render(){
-        return(<HeaderComponent isLoggedIn={this.props.isLoggedIn} isLoggedOut={this.isLogout} toggleSettings={this.toggleSettings} settingStyle={this.state.settingStyle} />);
+        return(<HeaderComponent isLoggedIn={this.props.isLoggedIn} toggleSettings={this.toggleSettings} settingStyle={this.state.settingStyle} />);
     }
 }
 

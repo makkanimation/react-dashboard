@@ -182,3 +182,5 @@ bootstrap.min.css:7
 img {
     border: 0;
 }
+
+.error { border: 1px solid red !important; }

@@ -1,9 +1,11 @@
 import React from 'react';
 import NavComponent from './includes/NavComponent';
-
+import HeaderContainer from '../containers/HeaderContainer';
 export default class DashboardComponent extends React.Component{
     render(){
         return(
+            <div>
+                <HeaderContainer />
             <div className="container-fluid">
             <div className="row">
                 <NavComponent/>
@@ -34,6 +36,7 @@ export default class DashboardComponent extends React.Component{
                     </div>
                 </section>
                 </main>
+            </div>
             </div>
             </div>
         );

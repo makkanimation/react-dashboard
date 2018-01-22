@@ -7,30 +7,64 @@ export default class Input extends React.Component {
 	super(props);
     this.state = {
       value: this.props.value || '',
+      clsName:this.props.clsName,
+      codeDisplayStyle:this.props.codeDisplayStyle,
     }
     this.handleChange = this.handleChange.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
+  }
+  validateInput(e){
+    this.setState({clsName: this.props.clsName});
+    this.setState({typed:""});
+    this.setState({codeDisplayStyle:this.props.codeDisplayStyle});
+    let emailValid;
+    let error=0;
+    if(e.target.required){
+        switch(e.target.type){
+          case 'text':
+            if(e.target.value==''){
+              this.setState({typed: this.props.label+" cannot be empty"});
+              error=1;
+            }
+          case 'email':
+            emailValid = e.target.value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);  
+            if(!emailValid){
+              this.setState({typed: this.props.label+" not Valid"});
+              error=1;
+            }
+        }
+    }
+
+    if(error==1){
+      this.setState({clsName: this.props.clsName+" error"});
+      this.setState({codeDisplayStyle: " block"});
+    }
   }
   handleChange(e) {
     let value = e.target.value.trim()
-    this.setState({value: value})
+    this.setState({value: value});
+    this.validateInput(e);
+    
   }
-
+  handleBlur(e){
+    this.validateInput(e);
+  }
   render() {
     return (
         [
           this.props.addLabel && <label><b>{this.props.label}</b></label>,
-          <input 
+          <div><input 
           type={this.props.inputType}
-          className={this.props.clsName}
+          className={this.state.clsName}
           name={this.props.name}
           value={this.state.value}
           required={this.props.RequiredField}
           placeholder={this.props.placeHolder}
-          onBlur= {this.props.onBlurCB}
+          onBlur= {this.handleBlur}
           onChange={this.handleChange}
           id={this.props.idName}
           autoComplete={this.props.autoComplete}
-        />
+        /><code style={{'display':this.state.codeDisplayStyle}}>{this.state.typed}</code></div>
         ]
     );
   }
@@ -43,6 +77,7 @@ Input.defaultProps = {
   value:'',
   RequiredField:false,
   placeHolder:'',
+  codeDisplayStyle:'none',
 };
 
 Input.propTypes = {
