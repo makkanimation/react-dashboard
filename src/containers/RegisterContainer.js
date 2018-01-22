@@ -1,13 +1,10 @@
 import React from 'react';
-import Input from '../components/global/Input';
-import CheckBoxOrRadio from '../components/global/CheckBoxOrRadio';
-import Button from '../components/global/Button';
+import { connect } from 'react-redux'
+import RegisterComponent from '../components/RegisterComponent'
 import { fetchData } from '../actions/index';
-import { connect } from 'react-redux';
-import LoginComponent from '../components/LoginComponent'
 import HeaderContainer from './HeaderContainer';
 
-class LoginContainer extends React.Component{
+class RegisterContainer extends React.Component{
     constructor(props){
         super(props);
         this.hadleSubmit = this.hadleSubmit.bind(this);
@@ -26,8 +23,8 @@ class LoginContainer extends React.Component{
        // });
         //let fn = ;
         let fn = fetchData(
-            'https://reqres.in/api/login', 
-            'LOGIN', 
+            'https://reqres.in/api/register', 
+            'REGISTER', 
             'POST', 
             {
               "email": "peter@klaven",
@@ -35,20 +32,20 @@ class LoginContainer extends React.Component{
             } 
           );
           
-          this.props.dispatch(fn);
+          this.props.dispatch(fn)
       }
 
     render(){
-        
-        //console.log(this.props);
-        return(<div><HeaderContainer /><LoginComponent history={this.props.history} isSubmitForm={this.hadleSubmit} isLoggedIn={this.props.isLoggedIn} /></div>
-        );
+        return(<div><HeaderContainer/><RegisterComponent  isSubmitForm={this.hadleSubmit} isLoggedIn={this.props.isLoggedIn} /></div>);
     }
-} 
+}
 
 const mapStateToProps = state => {
+    console.log('register');
+    console.log();
     return {
         isLoggedIn: state.LoginRequest.isLoggedIn,
     }
 };
-export default connect(mapStateToProps)(LoginContainer);
+
+export default connect(mapStateToProps)(RegisterContainer)

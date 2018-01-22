@@ -9,7 +9,7 @@ export default class NavComponent extends React.Component{
                     <Link to='/dashboard' className="nav-link">Overview <span className="sr-only">(current)</span></Link>
                     </li>
                     <li className="nav-item">
-                    <Link to='/profile/1' className="nav-link">Users</Link>
+                    <Link to='/users' className="nav-link">Users</Link>
                     </li>
                 </ul>
             </nav>

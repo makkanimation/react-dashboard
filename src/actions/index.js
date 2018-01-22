@@ -7,7 +7,8 @@ function requestData(actionType) {
 };
 
 function receiveData(actionType, json,params) {
-	//console.log(params);
+	console.log("fetch data");
+	console.log(json);
 	return{
 		type: actionType + types.RECV_DATA,
 		data: json,
@@ -16,6 +17,8 @@ function receiveData(actionType, json,params) {
 };
 
 function receiveError(actionType, json) {
+	console.log("fetch error");
+	console.log(json);
 	return {
 		type: actionType + types.RECV_ERROR,
 		data: json
@@ -24,7 +27,8 @@ function receiveError(actionType, json) {
 
 
 export function fetchData(url, actionType, method, params ) {
-	console.log(actionType);
+	
+	//console.log(actionType);
 	return function(dispatch) {
 		dispatch(requestData(actionType));
 		let config = {
@@ -44,3 +48,9 @@ export function fetchData(url, actionType, method, params ) {
 			})
 	}
 };
+
+export function logOutAction(actionType){
+	return{
+		type:actionType
+	}
+}

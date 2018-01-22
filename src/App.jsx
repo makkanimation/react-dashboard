@@ -1,6 +1,5 @@
 import React from 'react';
 import './styles/scss/main.scss';
-import HeaderContainer from './containers/HeaderContainer';
 //import HeaderComponent from './components/includes/HeaderComponent';
 import LoginComponent from './components/LoginComponent';
 import RegisterComponent from './components/RegisterComponent';
@@ -17,7 +16,7 @@ export default class App extends React.Component {
     render() {
     return (
     <div>
-    <HeaderContainer/>
+    
     <WebRouter/>
     </div>);
     }

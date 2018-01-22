@@ -8,7 +8,7 @@ export default class Image extends React.Component {
 
   render() {
     return (
-        <img src={this.props.srcUrl} className={this.props.clsName} alt={this.props.altName} id={this.props.idName} />
+        <img src={this.props.srcUrl} className={this.props.clsName} alt={this.props.altName} id={this.props.idName} style={this.props.styleName} />
     );
   }
 }
@@ -23,4 +23,5 @@ Image.propTypes = {
   altName : PropTypes.string,
   clsName: PropTypes.string,
   idName: PropTypes.string,
+  styleName:PropTypes.object,
 }

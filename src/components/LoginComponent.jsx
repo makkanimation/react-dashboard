@@ -4,6 +4,7 @@ import CheckBoxOrRadio from './global/CheckBoxOrRadio';
 import Button from './global/Button';
 import PropTypes from 'prop-types';
 import DashboardComponent from './DashboardComponent'
+//import { Route, Redirect } from 'react-router'
 export default class LoginComponent extends React.Component{
     constructor(props){
         super(props);
@@ -18,7 +19,7 @@ export default class LoginComponent extends React.Component{
     // }
     render(){
         if(this.props.isLoggedIn || localStorage.getItem('isLoggedIn')){
-            return <DashboardComponent />;
+            this.props.history.push('/dashboard')
         }
         return(
             <div className="container-fluid">
@@ -27,7 +28,7 @@ export default class LoginComponent extends React.Component{
                     <h1 className="center-align">Login {}</h1>
                     <form className='formcls' action="" onSubmit={this.props.isSubmitForm} >
                     <div className="container">
-                        <Input label="Email" placeHolder="Enter Email" name="email" RequiredField={true} />
+                        <Input label="Email" placeHolder="Enter Email" inputType='email' name="email" RequiredField={true} />
                         <Input label="Password" inputType="password" placeHolder="Enter Password" name="password" RequiredField={true} autoComplete={false} />
                         <CheckBoxOrRadio option={['Remember me']} name='gender' inputType='checkbox' />
                         <div className="clearfix">
@@ -46,7 +47,7 @@ LoginComponent.defaultProps = {
     isLoggedIn:false
 }
 
-Input.propTypes = {
+LoginComponent.propTypes = {
     isLoggedIn: PropTypes.bool,
     isSubmitForm:PropTypes.func
 }
